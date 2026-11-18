@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learnexa | Expert Chemistry Tutor — AP, IB, IGCSE, A-Level, NEET/JEE</title>
+<meta name="description" content="Learnexa is an expert international Chemistry tutoring platform specializing in AP, IB, IGCSE, A-Level, and NEET/JEE Chemistry. Master's in Chemistry with Organic Chemistry specialization. Book your free trial today.">
+<meta name="keywords" content="chemistry tutor, AP chemistry, IB chemistry, IGCSE chemistry, A-level chemistry, NEET chemistry, JEE chemistry, online chemistry tutor">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #060c1a;
+    --navy-mid: #0c1628;
+    --navy-light: #112040;
+    --blue: #1a5cff;
+    --blue-mid: #2d6eff;
+    --cyan: #00d4ff;
+    --cyan-dim: rgba(0, 212, 255, 0.15);
+    --gold: #f0c060;
+    --gold-dim: rgba(240, 192, 96, 0.12);
+    --white: #f0f4ff;
+    --white-dim: rgba(240, 244, 255, 0.65);
+    --white-faint: rgba(240, 244, 255, 0.08);
+    --border: rgba(0, 212, 255, 0.12);
+    --border-gold: rgba(240, 192, 96, 0.2);
+    --glow-blue: 0 0 40px rgba(26, 92, 255, 0.25);
+    --glow-cyan: 0 0 30px rgba(0, 212, 255, 0.2);
+    --radius: 16px;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; }
+  h1 { font-size: clamp(3.2rem, 7vw, 6rem); letter-spacing: -0.02em; }
+  h2 { font-size: clamp(2.2rem, 4.5vw, 3.8rem); letter-spacing: -0.01em; }
+  h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+  p { color: var(--white-dim); font-weight: 300; }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--cyan);
+    display: inline-block;
+  }
+
+  /* ─── BUTTONS ─── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 24px rgba(26, 92, 255, 0.4);
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.12));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(26, 92, 255, 0.55); }
+  .btn-primary:hover::before { opacity: 1; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 34px;
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    backdrop-filter: blur(8px);
+  }
+  .btn-ghost:hover { border-color: var(--cyan); background: var(--cyan-dim); transform: translateY(-2px); }
+
+  /* ─── GLASS CARD ─── */
+  .glass {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px);
+  }
+
+  /* ─── SECTION WRAPPER ─── */
+  .section { padding: 120px 0; position: relative; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 40px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, backdrop-filter 0.4s, border-bottom 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(6, 12, 26, 0.92);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo span { color: var(--cyan); }
+  .nav-logo .logo-mark {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    color: #fff;
+    font-weight: 700;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--white-dim);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta { display: flex; gap: 12px; align-items: center; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 72px;
+  }
+
+  /* Molecular grid background */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(26, 92, 255, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 20% 80%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+  }
+
+  /* Animated floating orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 8s ease-in-out infinite;
+  }
+  .orb-1 { width: 400px; height: 400px; background: rgba(26, 92, 255, 0.18); top: 10%; right: 5%; animation-delay: 0s; }
+  .orb-2 { width: 300px; height: 300px; background: rgba(0, 212, 255, 0.12); bottom: 20%; right: 20%; animation-delay: 2s; }
+  .orb-3 { width: 250px; height: 250px; background: rgba(240, 192, 96, 0.08); top: 50%; left: 5%; animation-delay: 4s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-24px) scale(1.04); }
+  }
+
+  /* Molecule SVG animation */
+  .molecule-canvas {
+    position: absolute;
+    right: 0; top: 0;
+    width: 55%;
+    height: 100%;
+    opacity: 0.18;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--white-dim);
+    backdrop-filter: blur(8px);
+  }
+  .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); }
+
+  .hero-label { animation: fadeUp 0.8s ease 0.1s both; margin-bottom: 20px; }
+
+  .hero-title {
+    animation: fadeUp 0.8s ease 0.2s both;
+    margin-bottom: 28px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--cyan);
+    background: linear-gradient(90deg, var(--cyan), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 580px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.8s ease 0.4s both; }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.8s ease 0.5s both;
+  }
+  .stat-item {}
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-number span { color: var(--cyan); }
+  .stat-label { font-size: 0.8rem; color: var(--white-dim); margin-top: 4px; }
+
+  /* Hero molecule visual - right side */
+  .hero-visual {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52%;
+    animation: fadeUp 1s ease 0.3s both;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes spinReverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--navy-mid); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-image-wrap {
+    position: relative;
+  }
+  .about-avatar {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 24px;
+    background: linear-gradient(160deg, var(--navy-light), var(--navy));
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-avatar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(26,92,255,0.15) 0%, transparent 60%);
+  }
+  .about-avatar-emoji { position: relative; z-index: 1; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4)); }
+  .about-tag {
+    position: absolute;
+    padding: 10px 18px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .about-tag-1 { bottom: 28px; right: -20px; }
+  .about-tag-2 { top: 28px; right: -20px; }
+
+  .about-content .label { margin-bottom: 16px; }
+  .about-content h2 { margin-bottom: 24px; }
+  .about-content p { margin-bottom: 20px; font-size: 1.02rem; }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--white-dim);
+  }
+  .highlight-icon {
+    width: 32px; height: 32px;
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  /* ─── SUBJECTS ─── */
+  #subjects {}
+  .subjects-header { text-align: center; margin-bottom: 64px; }
+  .subjects-header .label { justify-content: center; margin-bottom: 16px; }
+  .subjects-header h2 { margin-bottom: 16px; }
+  .subjects-header p { max-width: 540px; margin: 0 auto; }
+
+  .subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .subject-card {
+    padding: 32px;
+    border-radius: var(--radius);
+    background: linear-gradient(160deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .subject-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(26, 92, 255, 0.08), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .subject-card:hover { transform: translateY(-6px); border-color: rgba(0, 212, 255, 0.3); box-shadow: var(--glow-cyan); }
+  .subject-card:hover::before { opacity: 1; }
+
+  .subject-card.featured {
+    border-color: var(--border-gold);
+    background: linear-gradient(160deg, rgba(240, 192, 96, 0.06), rgba(255,255,255,0.01));
+    grid-column: span 2;
+  }
+  .subject-card.featured::before {
+    background: radial-gradient(circle at 80% 20%, rgba(240, 192, 96, 0.1), transparent 60%);
+  }
+  .subject-card.featured:hover { border-color: rgba(240, 192, 96, 0.5); box-shadow: 0 0 30px rgba(240, 192, 96, 0.15); }
+
+  .subject-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+  }
+  .subject-card.featured .subject-icon { background: var(--gold-dim); border-color: var(--border-gold); }
+
+  .subject-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+  .subject-card.featured .subject-label { color: var(--gold); }
+
+  .subject-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+  .subject-card p { font-size: 0.88rem; margin-bottom: 20px; }
+
+  .subject-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .subject-features li {
+    font-size: 0.82rem;
+    color: var(--white-dim);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .subject-features li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--cyan);
+    flex-shrink: 0;
+  }
+  .subject-card.featured .subject-features li::before { background: var(--gold); }
+
+  /* ─── WHY CHOOSE ─── */
+  #why { background: var(--navy-mid); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .why-content .label { margin-bottom: 16px; }
+  .why-content h2 { margin-bottom: 24px; }
+  .why-content > p { margin-bottom: 40px; font-size: 1.02rem; }
+  .why-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .why-feature {
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .why-feature:hover { border-color: rgba(0, 212, 255, 0.25); background: var(--cyan-dim); }
+  .why-feature-icon { font-size: 1.3rem; margin-bottom: 10px; }
+  .why-feature h4 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+  .why-feature p { font-size: 0.8rem; }
+
+  .why-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+  }
+
+  /* Periodic table-inspired decorative grid */
+  .periodic-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+  .element-tile {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    background: var(--white-faint);
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .element-tile:hover { transform: scale(1.06); border-color: var(--cyan); }
+  .element-tile.highlight { border-color: rgba(0, 212, 255, 0.3); background: var(--cyan-dim); }
+  .element-tile.gold-tile { border-color: rgba(240, 192, 96, 0.3); background: var(--gold-dim); }
+  .element-symbol { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; line-height: 1; }
+  .element-name { font-size: 0.55rem; font-family: var(--font-mono); color: var(--white-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+  .element-num { font-size: 0.55rem; font-family: var(--font-mono); color: var(--white-dim); position: absolute; top: 5px; left: 6px; }
+
+  /* ─── METHODOLOGY ─── */
+  #methodology {}
+  .methodology-header { text-align: center; margin-bottom: 64px; }
+  .methodology-header .label { justify-content: center; margin-bottom: 16px; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    position: relative;
+  }
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), var(--blue), var(--cyan), transparent);
+    z-index: 0;
+  }
+  .step-card {
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .step-number {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--cyan);
+    position: relative;
+  }
+  .step-number::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    animation: pulse 3s ease-in-out infinite;
+  }
+  .step-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+  .step-card p { font-size: 0.85rem; }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--navy-mid); overflow: hidden; }
+  .testimonials-header { text-align: center; margin-bottom: 64px; }
+  .testimonials-header .label { justify-content: center; margin-bottom: 16px; }
+
+  .testimonials-track-wrap { overflow: hidden; position: relative; }
+  .testimonials-track-wrap::before,
+  .testimonials-track-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .testimonials-track-wrap::before { left: 0; background: linear-gradient(90deg, var(--navy-mid), transparent); }
+  .testimonials-track-wrap::after { right: 0; background: linear-gradient(-90deg, var(--navy-mid), transparent); }
+
+  .testimonials-track {
+    display: flex;
+    gap: 24px;
+    animation: scrollTrack 30s linear infinite;
+    width: max-content;
+  }
+  @keyframes scrollTrack {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .testimonials-track:hover { animation-play-state: paused; }
+
+  .testimonial-card {
+    width: 340px;
+    flex-shrink: 0;
+    padding: 28px;
+    border-radius: var(--radius);
+    background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+  }
+  .testimonial-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial-text { font-size: 0.9rem; line-height: 1.75; margin-bottom: 20px; font-style: italic; color: var(--white-dim); }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; color: #fff;
+    flex-shrink: 0;
+  }
+  .author-name { font-weight: 600; font-size: 0.88rem; }
+  .author-meta { font-size: 0.75rem; color: var(--white-dim); }
+  .author-flag { font-size: 0.8rem; }
+
+  /* ─── BOOKING ─── */
+  #booking {}
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .booking-info .label { margin-bottom: 16px; }
+  .booking-info h2 { margin-bottom: 20px; }
+  .booking-info > p { margin-bottom: 32px; font-size: 1.02rem; }
+
+  .contact-methods { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--white);
+    transition: border-color 0.3s, background 0.3s, transform 0.2s;
+  }
+  .contact-method:hover { border-color: rgba(0, 212, 255, 0.3); background: var(--cyan-dim); transform: translateX(4px); }
+  .contact-method-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .cm-whatsapp .contact-method-icon { background: rgba(37, 211, 102, 0.15); }
+  .cm-email .contact-method-icon { background: var(--cyan-dim); }
+  .cm-calendly .contact-method-icon { background: rgba(0, 108, 255, 0.15); }
+  .contact-method-info h4 { font-size: 0.9rem; font-weight: 600; }
+  .contact-method-info p { font-size: 0.78rem; margin: 0; }
+
+  .booking-form {
+    padding: 36px;
+    border-radius: 20px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+  }
+  .form-title { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 6px; }
+  .form-subtitle { font-size: 0.85rem; margin-bottom: 28px; }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--white-dim); margin-bottom: 6px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--cyan);
+    background: var(--cyan-dim);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(240, 244, 255, 0.3); }
+  .form-group select option { background: var(--navy-mid); }
+  .form-group textarea { resize: none; height: 90px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: box-shadow 0.3s, transform 0.2s;
+    box-shadow: 0 4px 20px rgba(26, 92, 255, 0.35);
+  }
+  .form-submit:hover { box-shadow: 0 6px 30px rgba(26, 92, 255, 0.5); transform: translateY(-1px); }
+
+  /* ─── FAQ ─── */
+  #faq { background: var(--navy-mid); }
+  .faq-header { text-align: center; margin-bottom: 64px; }
+  .faq-header .label { justify-content: center; margin-bottom: 16px; }
+  .faq-grid { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+  .faq-item {
+    border-radius: 12px;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .faq-item.open { border-color: rgba(0, 212, 255, 0.3); }
+  .faq-question {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    gap: 16px;
+  }
+  .faq-question:hover { color: var(--cyan); }
+  .faq-toggle {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: transform 0.3s, background 0.3s;
+    color: var(--cyan);
+  }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--cyan-dim); }
+  .faq-answer {
+    padding: 0 24px;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding: 0 24px 20px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid var(--border);
+    padding: 60px 0 32px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-brand .nav-logo { margin-bottom: 16px; }
+  .footer-brand p { font-size: 0.85rem; max-width: 280px; margin-bottom: 20px; }
+  .social-links { display: flex; gap: 10px; }
+  .social-link {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--white-dim);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .social-link:hover { border-color: var(--cyan); background: var(--cyan-dim); color: var(--white); }
+
+  .footer-col h4 { font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; margin-bottom: 16px; color: var(--white); }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a {
+    font-size: 0.82rem;
+    color: var(--white-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--cyan); }
+
+  .footer-bottom {
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-bottom p { font-size: 0.78rem; color: rgba(240, 244, 255, 0.35); margin: 0; }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a { font-size: 0.78rem; color: rgba(240, 244, 255, 0.35); text-decoration: none; }
+  .footer-bottom-links a:hover { color: var(--cyan); }
+
+  /* ─── SCROLL ANIMATION CLASSES ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── FLOATING WA BUTTON ─── */
+  .wa-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    cursor: pointer;
+    z-index: 999;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 1s ease 1s both;
+  }
+  .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55); }
+  .wa-float::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, 0.3);
+    animation: pulse 2s ease infinite;
+  }
+
+  /* ─── SECTION DIVIDER ─── */
+  .section-divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    border-radius: 2px;
+    margin: 20px 0 32px;
+  }
+  .section-divider.center { margin: 20px auto 32px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .subjects-grid { grid-template-columns: repeat(2, 1fr); }
+    .subject-card.featured { grid-column: span 2; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps-grid::before { display: none; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .hero-visual { display: none; }
+    h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .section { padding: 80px 0; }
+    nav { padding: 0 20px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-image-wrap { max-width: 320px; margin: 0 auto; }
+    .about-tag { display: none; }
+    .subjects-grid { grid-template-columns: 1fr; }
+    .subject-card.featured { grid-column: span 1; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-visual { height: 300px; }
+    .booking-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 28px; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .why-features { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 1.9rem; }
+    .hero-badges { gap: 6px; }
+    .badge { font-size: 0.7rem; padding: 5px 10px; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+  }
+
+  /* ─── CURSOR GLOW ─── */
+  .cursor-glow {
+    position: fixed;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: left 0.15s ease, top 0.15s ease;
+  }
+
+  /* ─── BACK TO TOP ─── */
+  .back-top {
+    position: fixed;
+    bottom: 28px; left: 28px;
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 999;
+    text-decoration: none;
+    color: var(--white-dim);
+    transition: border-color 0.3s, background 0.3s, opacity 0.3s;
+    opacity: 0;
+  }
+  .back-top.visible { opacity: 1; }
+  .back-top:hover { border-color: var(--cyan); background: var(--cyan-dim); color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" href="https://wa.me/919999999999" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- Back to Top -->
+<a class="back-top" id="backTop" href="#hero" title="Back to top">↑</a>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">
+    <div class="logo-mark">Lx</div>
+    Learnexa<span>.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#subjects">Subjects</a></li>
+    <li><a href="#why">Why Me</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#booking" class="btn-primary" style="padding: 11px 24px; font-size: 0.85rem;">Book Trial Class →</a>
+  </div>
+  <div class="hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'; document.querySelector('.nav-links').style.flexDirection = 'column'; document.querySelector('.nav-links').style.position = 'absolute'; document.querySelector('.nav-links').style.top = '72px'; document.querySelector('.nav-links').style.left = '0'; document.querySelector('.nav-links').style.right = '0'; document.querySelector('.nav-links').style.background = 'rgba(6,12,26,0.98)'; document.querySelector('.nav-links').style.padding = '20px 40px'; document.querySelector('.nav-links').style.borderBottom = '1px solid rgba(0,212,255,0.12)';">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <!-- Animated molecule SVG -->
+    <svg class="molecule-canvas" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="nodeGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2d6eff" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#00d4ff" stop-opacity="0.2"/>
+        </radialGradient>
+      </defs>
+      <!-- Molecule bonds -->
+      <g stroke="rgba(0,212,255,0.4)" stroke-width="1.5" fill="none">
+        <line x1="300" y1="300" x2="180" y2="200" class="mol-bond"/>
+        <line x1="300" y1="300" x2="420" y2="200" class="mol-bond"/>
+        <line x1="300" y1="300" x2="460" y2="360" class="mol-bond"/>
+        <line x1="300" y1="300" x2="200" y2="420" class="mol-bond"/>
+        <line x1="300" y1="300" x2="300" y2="160" class="mol-bond"/>
+        <line x1="180" y1="200" x2="100" y2="280" class="mol-bond"/>
+        <line x1="420" y1="200" x2="500" y2="130" class="mol-bond"/>
+        <line x1="460" y1="360" x2="510" y2="440" class="mol-bond"/>
+        <line x1="200" y1="420" x2="130" y2="490" class="mol-bond"/>
+        <line x1="300" y1="160" x2="360" y2="100" class="mol-bond"/>
+        <line x1="180" y1="200" x2="420" y2="200" class="mol-bond"/>
+        <line x1="460" y1="360" x2="200" y2="420" class="mol-bond"/>
+        <line x1="100" y1="280" x2="130" y2="490"/>
+      </g>
+      <!-- Molecule nodes -->
+      <g fill="url(#nodeGrad)" stroke="rgba(0,212,255,0.6)" stroke-width="1">
+        <circle cx="300" cy="300" r="16" opacity="0.9"/>
+        <circle cx="180" cy="200" r="12" opacity="0.8"/>
+        <circle cx="420" cy="200" r="12" opacity="0.8"/>
+        <circle cx="460" cy="360" r="10" opacity="0.7"/>
+        <circle cx="200" cy="420" r="10" opacity="0.7"/>
+        <circle cx="300" cy="160" r="10" opacity="0.7"/>
+        <circle cx="100" cy="280" r="8" opacity="0.6"/>
+        <circle cx="500" cy="130" r="8" opacity="0.6"/>
+        <circle cx="510" cy="440" r="8" opacity="0.6"/>
+        <circle cx="130" cy="490" r="8" opacity="0.6"/>
+        <circle cx="360" cy="100" r="8" opacity="0.6"/>
+      </g>
+      <!-- Element labels on nodes -->
+      <g fill="rgba(0,212,255,0.9)" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">
+        <text x="300" y="304">C</text>
+        <text x="180" y="204">H</text>
+        <text x="420" y="204">O</text>
+        <text x="460" y="364">N</text>
+        <text x="200" y="424">H</text>
+        <text x="300" y="164">C</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badges">
+        <div class="badge"><span class="dot"></span>3+ Years Teaching AP/IB Students</div>
+        <div class="badge"><span class="dot"></span>International Online Tutor</div>
+        <div class="badge"><span class="dot"></span>Personalized Learning</div>
+      </div>
+      <div class="hero-label label">Expert Chemistry Tutor</div>
+      <h1 class="hero-title">
+        Chemistry<br>Made <em>Crystal Clear.</em>
+      </h1>
+      <p class="hero-desc">
+        Hi, I'm <strong style="color: var(--white); font-weight: 600;">Rohan</strong>, the tutor behind <strong style="color: var(--cyan); font-weight: 600;">Learnexa</strong> — a Master's-qualified Chemistry tutor specializing in AP, IB, IGCSE, A-Level, and NEET/JEE. I help students truly understand Chemistry — not just memorize it — through concept-driven, exam-focused, and highly personalized sessions.
+      </p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-primary">
+          <span>Book a Free Trial Class</span>
+          <span>→</span>
+        </a>
+        <a href="#about" class="btn-ghost">Meet the Tutor</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">3<span>+</span></div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">150<span>+</span></div>
+          <div class="stat-label">Students Taught</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5<span></span></div>
+          <div class="stat-label">Curricula Covered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98<span>%</span></div>
+          <div class="stat-label">Student Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal">
+        <div class="about-avatar">
+          <span class="about-avatar-emoji">👨‍🔬</span>
+        </div>
+        <div class="about-tag glass badge about-tag-1">
+          <span>🎓</span> M.Sc. Chemistry
+        </div>
+        <div class="about-tag glass badge about-tag-2">
+          <span>🌍</span> International Tutor
+        </div>
+      </div>
+      <div class="about-content reveal reveal-delay-1">
+        <div class="label">About Me</div>
+        <div class="section-divider"></div>
+        <h2>A Tutor Who Turns<br>Complexity into <em>Clarity.</em></h2>
+        <p>
+          I'm Rohan, an international Chemistry tutor with a Master's degree in Chemistry and a deep specialization in Organic Chemistry. Over the years, I've worked with students across the US, UK, and beyond — helping them navigate some of the most challenging curricula in the world.
+        </p>
+        <p>
+          My teaching philosophy is simple: <strong style="color: var(--white);">real understanding beats rote memorization</strong>. I take the time to build solid conceptual foundations, connect chemistry to the real world, and give every student the tools they need to tackle any exam question confidently.
+        </p>
+        <p>
+          Whether you're struggling with reaction mechanisms, stoichiometry, or equilibrium — or aiming for a top score in AP, IB, or A-Levels — I provide a structured, supportive, and highly personalized learning environment tailored to your goals and pace.
+        </p>
+        <div class="about-highlights">
+          <div class="highlight-item"><div class="highlight-icon">🎓</div> M.Sc. in Chemistry</div>
+          <div class="highlight-item"><div class="highlight-icon">⚗️</div> Organic Chemistry Expert</div>
+          <div class="highlight-item"><div class="highlight-icon">🌍</div> US & UK Students</div>
+          <div class="highlight-item"><div class="highlight-icon">💻</div> Online Teaching Specialist</div>
+          <div class="highlight-item"><div class="highlight-icon">🎯</div> Exam-Focused Strategies</div>
+          <div class="highlight-item"><div class="highlight-icon">🤝</div> Student-First Approach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SUBJECTS ─── -->
+<section id="subjects" class="section">
+  <div class="container">
+    <div class="subjects-header reveal">
+      <div class="label">Curricula & Subjects</div>
+      <div class="section-divider center"></div>
+      <h2>Expert Tuition Across<br>All Major Curricula</h2>
+      <p>Targeted, exam-ready teaching for every major international Chemistry qualification.</p>
+    </div>
+    <div class="subjects-grid">
+      <!-- AP Chemistry - Featured -->
+      <div class="subject-card featured reveal">
+        <div class="subject-icon">⚗️</div>
+        <div class="subject-label">Advanced Placement · USA</div>
+        <h3>AP Chemistry</h3>
+        <p>Deep-dive into college-level Chemistry concepts with targeted AP exam strategy. From atomic structure to electrochemistry — I'll help you score a 4 or 5.</p>
+        <ul class="subject-features">
+          <li>Full AP curriculum coverage (Units 1–9)</li>
+          <li>FRQ & MCQ exam techniques</li>
+          <li>Lab-based conceptual understanding</li>
+          <li>Weekly practice tests with detailed feedback</li>
+          <li>Personalized revision schedules</li>
+        </ul>
+      </div>
+      <!-- IB Chemistry -->
+      <div class="subject-card reveal reveal-delay-1">
+        <div class="subject-icon">🔬</div>
+        <div class="subject-label">IB Diploma</div>
+        <h3>IB Chemistry SL & HL</h3>
+        <p>Comprehensive support for IB Chemistry — from stoichiometry and bonding through to organic and HL extension topics.</p>
+        <ul class="subject-features">
+          <li>SL & HL full topic coverage</li>
+          <li>Internal Assessment (IA) guidance</li>
+          <li>Paper 1, 2 & 3 strategies</li>
+          <li>Concept-first approach</li>
+        </ul>
+      </div>
+      <!-- IGCSE -->
+      <div class="subject-card reveal reveal-delay-2">
+        <div class="subject-icon">📐</div>
+        <div class="subject-label">Cambridge / Edexcel</div>
+        <h3>IGCSE Chemistry</h3>
+        <p>Build a rock-solid foundation with IGCSE Chemistry, making the transition to A-Level or IB seamless and confident.</p>
+        <ul class="subject-features">
+          <li>Core & Extended curriculum</li>
+          <li>Practical Chemistry concepts</li>
+          <li>Past paper guided walkthroughs</li>
+          <li>Exam-mark-scheme mastery</li>
+        </ul>
+      </div>
+      <!-- A-Level -->
+      <div class="subject-card reveal reveal-delay-1">
+        <div class="subject-icon">🏛️</div>
+        <div class="subject-label">UK Curriculum</div>
+        <h3>A-Level Chemistry</h3>
+        <p>Expert A-Level teaching for AQA, OCR, and Edexcel — with special focus on Organic Chemistry mechanisms and synoptic connections.</p>
+        <ul class="subject-features">
+          <li>Year 1 & Year 2 full coverage</li>
+          <li>Organic mechanism mastery</li>
+          <li>Synoptic exam preparation</li>
+          <li>Predicted grade improvement plans</li>
+        </ul>
+      </div>
+      <!-- NEET/JEE -->
+      <div class="subject-card reveal reveal-delay-2">
+        <div class="subject-icon">🧬</div>
+        <div class="subject-label">India · Competitive Exams</div>
+        <h3>NEET & JEE Chemistry</h3>
+        <p>Crack NEET and JEE with structured Chemistry coaching that makes Physical, Organic, and Inorganic Chemistry conceptually clear.</p>
+        <ul class="subject-features">
+          <li>Organic Chemistry deep-dive</li>
+          <li>Physical & Inorganic strategies</li>
+          <li>MCQ solving techniques</li>
+          <li>Chapter-wise revision + tests</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY CHOOSE ME ─── -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="why-grid">
+      <!-- Visual: Periodic Table tiles -->
+      <div class="why-visual reveal">
+        <div class="periodic-grid">
+          <div class="element-tile highlight"><span class="element-num">6</span><span class="element-symbol">C</span><span class="element-name">Carbon</span></div>
+          <div class="element-tile"><span class="element-num">1</span><span class="element-symbol">H</span><span class="element-name">Hydrogen</span></div>
+          <div class="element-tile highlight"><span class="element-num">8</span><span class="element-symbol">O</span><span class="element-name">Oxygen</span></div>
+          <div class="element-tile"><span class="element-num">7</span><span class="element-symbol">N</span><span class="element-name">Nitrogen</span></div>
+          <div class="element-tile gold-tile"><span class="element-num">79</span><span class="element-symbol">Au</span><span class="element-name">Gold</span></div>
+          <div class="element-tile"><span class="element-num">11</span><span class="element-symbol">Na</span><span class="element-name">Sodium</span></div>
+          <div class="element-tile highlight"><span class="element-num">17</span><span class="element-symbol">Cl</span><span class="element-name">Chlorine</span></div>
+          <div class="element-tile"><span class="element-num">19</span><span class="element-symbol">K</span><span class="element-name">Potassium</span></div>
+          <div class="element-tile"><span class="element-num">20</span><span class="element-symbol">Ca</span><span class="element-name">Calcium</span></div>
+          <div class="element-tile highlight"><span class="element-num">26</span><span class="element-symbol">Fe</span><span class="element-name">Iron</span></div>
+          <div class="element-tile"><span class="element-num">29</span><span class="element-symbol">Cu</span><span class="element-name">Copper</span></div>
+          <div class="element-tile gold-tile"><span class="element-num">47</span><span class="element-symbol">Ag</span><span class="element-name">Silver</span></div>
+          <div class="element-tile highlight"><span class="element-num">16</span><span class="element-symbol">S</span><span class="element-name">Sulfur</span></div>
+          <div class="element-tile"><span class="element-num">15</span><span class="element-symbol">P</span><span class="element-name">Phosphorus</span></div>
+          <div class="element-tile"><span class="element-num">12</span><span class="element-symbol">Mg</span><span class="element-name">Magnesium</span></div>
+          <div class="element-tile"><span class="element-num">13</span><span class="element-symbol">Al</span><span class="element-name">Aluminium</span></div>
+          <div class="element-tile highlight"><span class="element-num">14</span><span class="element-symbol">Si</span><span class="element-name">Silicon</span></div>
+          <div class="element-tile"><span class="element-num">35</span><span class="element-symbol">Br</span><span class="element-name">Bromine</span></div>
+          <div class="element-tile gold-tile"><span class="element-num">2</span><span class="element-symbol">He</span><span class="element-name">Helium</span></div>
+          <div class="element-tile"><span class="element-num">10</span><span class="element-symbol">Ne</span><span class="element-name">Neon</span></div>
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="why-content reveal reveal-delay-1">
+        <div class="label">Why Students Choose Me</div>
+        <div class="section-divider"></div>
+        <h2>Learning That<br>Actually <em>Works.</em></h2>
+        <p>Every student is different. That's why I craft a unique learning experience for each individual — blending conceptual depth, exam tactics, and genuine support.</p>
+        <div class="why-features">
+          <div class="why-feature">
+            <div class="why-feature-icon">🎯</div>
+            <h4>Personalized Plans</h4>
+            <p>Lessons designed around your exact syllabus, pace, and goals.</p>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">📊</div>
+            <h4>Practice Tests</h4>
+            <p>Regular tests & past papers to build confidence and exam stamina.</p>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">📝</div>
+            <h4>Notes & Assignments</h4>
+            <p>Clear, concise study notes and structured homework after every session.</p>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">💬</div>
+            <h4>Doubt Clearing</h4>
+            <p>Quick doubt-solving support between sessions via chat.</p>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">🕐</div>
+            <h4>Flexible Scheduling</h4>
+            <p>Sessions available across time zones — US, UK, India, and beyond.</p>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">🌍</div>
+            <h4>International Experience</h4>
+            <p>Proven track record with US, UK, and global curriculum students.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── METHODOLOGY ─── -->
+<section id="methodology" class="section">
+  <div class="container">
+    <div class="methodology-header reveal">
+      <div class="label">Teaching Methodology</div>
+      <div class="section-divider center"></div>
+      <h2>How I Teach Chemistry</h2>
+      <p style="max-width: 520px; margin: 0 auto;">A structured, proven approach that builds deep understanding — not just surface-level recall.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card glass reveal">
+        <div class="step-number">01</div>
+        <h3>Concept First</h3>
+        <p>Before any problem-solving, I ensure the underlying concept is fully understood — using real-world examples and visual analogies that make abstract ideas tangible.</p>
+      </div>
+      <div class="step-card glass reveal reveal-delay-1">
+        <div class="step-number">02</div>
+        <h3>Step-by-Step Problem Solving</h3>
+        <p>I walk through problems systematically, building a logical framework students can apply independently to any question — not just the ones we practiced.</p>
+      </div>
+      <div class="step-card glass reveal reveal-delay-2">
+        <div class="step-number">03</div>
+        <h3>Visual Learning</h3>
+        <p>Diagrams, molecular models, reaction maps, and mind-maps make even the most complex Organic mechanisms visually intuitive and memorable.</p>
+      </div>
+      <div class="step-card glass reveal reveal-delay-3">
+        <div class="step-number">04</div>
+        <h3>Exam Strategy</h3>
+        <p>Past papers, mark-scheme analysis, and time-management tactics tailored specifically to AP, IB, A-Level, and NEET/JEE exam formats and marking criteria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="label">Student Reviews</div>
+      <div class="section-divider center"></div>
+      <h2>What My Students Say</h2>
+      <p>Real results from real students across the globe.</p>
+    </div>
+  </div>
+  <div class="testimonials-track-wrap">
+    <div class="testimonials-track" id="testimonialsTrack">
+      <!-- Set 1 -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Rohan's way of teaching Organic Chemistry is unlike anything I experienced in school. He connects every concept to something real and logical. I went from failing my mocks to getting a 7 in IB Chemistry HL. Absolutely incredible."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">E</div>
+          <div>
+            <div class="author-name">Emily R.</div>
+            <div class="author-meta">IB Chemistry HL — <span class="author-flag">🇬🇧</span> UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I was really intimidated by AP Chemistry but Rohan made it so approachable. His step-by-step method and consistent practice tests helped me score a 5 on the AP exam. He genuinely cares about his students."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div>
+            <div class="author-name">Jason M.</div>
+            <div class="author-meta">AP Chemistry — <span class="author-flag">🇺🇸</span> USA</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Rohan helped my son crack JEE with remarkable clarity in Chemistry. His explanations of equilibrium and electrochemistry were precise and exam-focused. Highly recommend to any JEE aspirant."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">P</div>
+          <div>
+            <div class="author-name">Priya S.</div>
+            <div class="author-meta">JEE Chemistry (Parent) — <span class="author-flag">🇮🇳</span> India</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I struggled with A-Level Chemistry mechanisms for months. One month with Rohan and everything clicked. His notes are brilliant, his explanations are clear, and he's always available for doubts. Best tutor I've had."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div>
+            <div class="author-name">Aisha K.</div>
+            <div class="author-meta">A-Level Chemistry — <span class="author-flag">🇬🇧</span> UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Rohan's approach to IGCSE chemistry was perfect for my daughter. He simplified difficult topics and made exam prep feel structured and manageable. She got an A* and is now confident going into A-Levels."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">T</div>
+          <div>
+            <div class="author-name">Thomas W.</div>
+            <div class="author-meta">IGCSE Chemistry (Parent) — <span class="author-flag">🇺🇸</span> USA</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The personalized notes and regular practice tests Rohan provides are next-level. I never felt lost because he always checks for understanding before moving forward. My NEET Chemistry score improved by 40 marks."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div>
+            <div class="author-name">Riya V.</div>
+            <div class="author-meta">NEET Chemistry — <span class="author-flag">🇮🇳</span> India</div>
+          </div>
+        </div>
+      </div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Rohan's way of teaching Organic Chemistry is unlike anything I experienced in school. He connects every concept to something real and logical. I went from failing my mocks to getting a 7 in IB Chemistry HL."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">E</div>
+          <div>
+            <div class="author-name">Emily R.</div>
+            <div class="author-meta">IB Chemistry HL — <span class="author-flag">🇬🇧</span> UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I was really intimidated by AP Chemistry but Rohan made it so approachable. His step-by-step method and consistent practice tests helped me score a 5 on the AP exam."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div>
+            <div class="author-name">Jason M.</div>
+            <div class="author-meta">AP Chemistry — <span class="author-flag">🇺🇸</span> USA</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Rohan helped my son crack JEE with remarkable clarity in Chemistry. His explanations of equilibrium and electrochemistry were precise and exam-focused."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">P</div>
+          <div>
+            <div class="author-name">Priya S.</div>
+            <div class="author-meta">JEE Chemistry (Parent) — <span class="author-flag">🇮🇳</span> India</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The personalized notes and regular practice tests Rohan provides are next-level. My NEET Chemistry score improved by 40 marks."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div>
+            <div class="author-name">Riya V.</div>
+            <div class="author-meta">NEET Chemistry — <span class="author-flag">🇮🇳</span> India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOKING ─── -->
+<section id="booking" class="section">
+  <div class="container">
+    <div class="booking-grid">
+      <div class="booking-info reveal">
+        <div class="label">Get Started</div>
+        <div class="section-divider"></div>
+        <h2>Book Your Free<br>Trial Lesson Today</h2>
+        <p>Ready to experience Chemistry the way it should be taught? Book a no-obligation trial session and see the difference for yourself.</p>
+        <div class="contact-methods">
+          <a href="https://wa.me/919999999999" target="_blank" class="contact-method cm-whatsapp">
+            <div class="contact-method-icon">💬</div>
+            <div class="contact-method-info">
+              <h4>WhatsApp</h4>
+              <p>Chat directly for a quick response</p>
+            </div>
+            <span style="margin-left: auto; color: var(--white-dim); font-size: 0.8rem;">→</span>
+          </a>
+          <a href="mailto:rohan@chemistrytutor.com" class="contact-method cm-email">
+            <div class="contact-method-icon">📧</div>
+            <div class="contact-method-info">
+              <h4>Email</h4>
+              <p>rohan@chemistrytutor.com</p>
+            </div>
+            <span style="margin-left: auto; color: var(--white-dim); font-size: 0.8rem;">→</span>
+          </a>
+          <a href="#booking" class="contact-method cm-calendly">
+            <div class="contact-method-icon">📅</div>
+            <div class="contact-method-info">
+              <h4>Schedule via Calendly</h4>
+              <p>Pick a time that works for you</p>
+            </div>
+            <span style="margin-left: auto; color: var(--white-dim); font-size: 0.8rem;">→</span>
+          </a>
+        </div>
+        <!-- Trust badges -->
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <div class="badge"><span>🔒</span> Free Trial</div>
+          <div class="badge"><span>✅</span> No commitment</div>
+          <div class="badge"><span>🌍</span> All time zones</div>
+        </div>
+      </div>
+      <!-- Form -->
+      <div class="booking-form reveal reveal-delay-1">
+        <h3 class="form-title">Book Trial Class</h3>
+        <p class="form-subtitle">Fill in your details and I'll get back to you within 24 hours.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" placeholder="Your first name">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Your last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Phone</label>
+          <input type="tel" placeholder="+1 234 567 8900">
+        </div>
+        <div class="form-group">
+          <label>Curriculum / Subject *</label>
+          <select>
+            <option value="" disabled selected>Select your curriculum</option>
+            <option>AP Chemistry</option>
+            <option>IB Chemistry SL</option>
+            <option>IB Chemistry HL</option>
+            <option>IGCSE Chemistry</option>
+            <option>A-Level Chemistry</option>
+            <option>NEET Chemistry</option>
+            <option>JEE Chemistry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell me about your goals</label>
+          <textarea placeholder="e.g. I'm preparing for AP exam in May and struggling with thermodynamics..."></textarea>
+        </div>
+        <button class="form-submit">Request Free Trial Class →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="faq-header reveal">
+      <div class="label">FAQ</div>
+      <div class="section-divider center"></div>
+      <h2>Common Questions</h2>
+      <p>Everything you need to know before booking.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Which curricula and subjects do you teach?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          I teach Chemistry across AP (US), IB SL & HL (International), IGCSE (Cambridge & Edexcel), A-Level (AQA, OCR, Edexcel), and NEET & JEE (India). All sessions are conducted online, so I can work with students from anywhere in the world.
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Do you teach complete beginners?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          Absolutely. Whether you're starting Chemistry from scratch or picking up after a long break, I build the foundation you need before progressing to more advanced topics. No prior knowledge is assumed — we start from where you are.
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Do you help with AP exam preparation?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          Yes — AP exam prep is one of my core offerings. I cover the full AP Chemistry curriculum (Units 1–9), work through past FRQs and MCQs, and use targeted strategies to help students score 4s and 5s. I also focus on lab-based questions and the specific thinking skills the AP exam demands.
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Do you provide notes and assignments?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          Yes. After each session I provide clear, structured notes summarizing key concepts covered. I also assign relevant practice problems and past paper questions for homework. Everything is tailored to your specific syllabus and current level.
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>What is your teaching style like?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          I take a concept-first approach: I make sure you truly understand the "why" behind every idea before moving on. Sessions are interactive — not lectures. I use visual aids, real-life examples, and frequent check-ins. The pace is entirely adapted to you, and I encourage questions at every step.
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>How are sessions conducted?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          All sessions are conducted online via Zoom or Google Meet, using a digital whiteboard for working through problems visually. Sessions are typically 60 or 90 minutes, scheduled flexibly to accommodate different time zones across the US, UK, and India.
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>How do I get started?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          Simply fill out the booking form above, or reach out via WhatsApp or email. I'll respond within 24 hours to schedule a free trial session. The trial is a full 45-minute lesson — no strings attached — so you can experience the teaching approach before committing.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" style="margin-bottom: 16px; display: inline-flex;">
+          <div class="logo-mark">Lx</div>
+          Learnexa<span>.</span>
+        </a>
+        <p>Expert international Chemistry tutor — helping students worldwide achieve academic excellence through deep understanding and proven exam strategies.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" title="LinkedIn">in</a>
+          <a href="#" class="social-link" title="Instagram">ig</a>
+          <a href="#" class="social-link" title="YouTube">yt</a>
+          <a href="#" class="social-link" title="Twitter/X">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Subjects</h4>
+        <ul>
+          <li><a href="#subjects">AP Chemistry</a></li>
+          <li><a href="#subjects">IB Chemistry SL & HL</a></li>
+          <li><a href="#subjects">IGCSE Chemistry</a></li>
+          <li><a href="#subjects">A-Level Chemistry</a></li>
+          <li><a href="#subjects">NEET & JEE</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About Learnexa</a></li>
+          <li><a href="#why">Why Choose Me</a></li>
+          <li><a href="#methodology">Teaching Method</a></li>
+          <li><a href="#testimonials">Student Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <ul>
+          <li><a href="mailto:rohan@chemistrytutor.com">rohan@chemistrytutor.com</a></li>
+          <li><a href="https://wa.me/919999999999">WhatsApp Chat</a></li>
+          <li><a href="#booking">Book Trial Class</a></li>
+          <li><a href="#booking">Schedule via Calendly</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Learnexa — Expert Chemistry Tutor. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── NAVBAR SCROLL ───
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // ─── CURSOR GLOW ───
+  const glow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+
+  // ─── SCROLL REVEAL ───
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ─── FAQ TOGGLE ───
+  function toggleFaq(item) {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ─── SMOOTH SCROLL ───
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Close mobile nav if open
+        const navLinks = document.querySelector('.nav-links');
+        if (navLinks.style.position === 'absolute') navLinks.style.display = 'none';
+      }
+    });
+  });
+
+  // ─── FORM SUBMIT ───
+  document.querySelector('.form-submit').addEventListener('click', function(e) {
+    e.preventDefault();
+    this.textContent = '✅ Request Sent! I\'ll be in touch shortly.';
+    this.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
+    this.style.boxShadow = '0 4px 20px rgba(22, 163, 74, 0.35)';
+    setTimeout(() => {
+      this.textContent = 'Request Free Trial Class →';
+      this.style.background = '';
+      this.style.boxShadow = '';
+    }, 4000);
+  });
+
+  // ─── MOLECULE ANIMATION ───
+  const bonds = document.querySelectorAll('.mol-bond');
+  bonds.forEach((bond, i) => {
+    bond.style.animation = `pulse ${2 + i * 0.3}s ease-in-out infinite`;
+    bond.style.animationDelay = `${i * 0.2}s`;
+  });
+
+  // ─── ELEMENT TILES HOVER ───
+  document.querySelectorAll('.element-tile').forEach(tile => {
+    tile.addEventListener('mouseenter', function() {
+      this.style.background = 'rgba(0, 212, 255, 0.12)';
+    });
+    tile.addEventListener('mouseleave', function() {
+      this.style.background = '';
+    });
+  });
+</script>
+</body>
+</html>
